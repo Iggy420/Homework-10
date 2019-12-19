@@ -1,70 +1,33 @@
 const inquirer = require("inquirer");
-const axios = require("axios");
-const pdf = require('html-pdf');
+const fs =require("fs");
+const manager = require("manager");
+const engineer = require("intern");
+const intern = require("intern");
 
-class DoMyHomework {
+class team {
   constructor() {
-    this.githubUserName = null;
-    this.color = null;
+    this.name = null;
+    this.jobTitle = null;
   }
 
   promptUser() {
     return inquirer.prompt([
       {
-        message: 'What is your user name',
-        name: 'githubUserName'
+        message: 'What is your user name?',
+        name: 'Name'
       },
       {
-          message: 'What is your favorite color?',
-          name: 'color'
+          message: 'What is your title?',
+          name: 'job title'
       }
       
-    ]).then(({ githubUserName }) => {
-      this.githubUserName = githubUserName;
-      this.makeApiRequest();
+    ]).then(({ name }) => {
+      this.Name = Name;
+      this.idNumber();
     })
   }
 
-  makeApiRequest() {
-    return Promise.all(
-      [
-        axios.get(`https://api.github.com/users/${this.githubUserName}`),
-        axios.get(`https://api.github.com/users/${this.githubUserName}/starred`)
-      ])
-      .then((
-        [
-          {
-            data:
-            {
-              avatar_url,
-              location,
-              name,
-              blog,
-              bio,
-              public_repos,
-              followers,
-              following,
-              html_url
-            }
-          },
-          {
-            data:
-            {
-              length
-            }
-          }
-        ]
-      ) => {
-        this.avatar_url = avatar_url;
-        this.location = location;
-        this.name = name;
-        this.blog = blog;
-        this.bio = bio;
-        this.html_url = html_url;
-        this.public_repos = public_repos;
-        this.followers = followers;
-        this.following = following;
-        console.log('THIS', this);
+  
         this.createHtml();
       })
   }
@@ -79,40 +42,7 @@ class DoMyHomework {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css"/>
         <style>
-        .image {
-            background_color: ${this.color};
-            text-align: center;
-            position: relative;
-        }
-        .login{
-            background_color: ${this.color};
-            text-align: center;
-        }
-        .bio{
-            text-align: center;
-        }
-        .repositories{
-            float: left;
-          width: 50%;
-            text-align: center;
-        }
-        .stars{
-            float: left;
         
-          width: 50%;
-            text-align: center;
-        }
-        .followers{
-            float: right;
-          width: 50%;
-            text-align: center;
-        }
-        .following{
-            float: right;
-          width: 50%;
-            text-align: center;
-        }
-        </style>
       </head>
       <body>
          <div class="container">
@@ -155,18 +85,16 @@ class DoMyHomework {
       <script src="index.js"></script>
     </html> 
     `;
-
-//     this.createPdf();
-//   }
-
-//   createPdf() {
-//     pdf.create(this.html).toFile('./class-test.pdf', function (err, res) {
-//       if (err) return console.log(err);
-//       console.log(res);
-//     });
+  }
+    createHtml(){
+        html.create(this.html).toFile('./main.html', function (err, res) {
+            if (err) return console.log(err);
+            console.log(res);
+        });
+    }
   }
 
-}
+
 
 var newHomework = new DoMyHomework();
 newHomework.promptUser();
