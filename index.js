@@ -1,100 +1,74 @@
 const inquirer = require("inquirer");
 const fs =require("fs");
-const manager = require("manager");
-const engineer = require("intern");
-const intern = require("intern");
+// const manager = require("manager");
+// const engineer = require("intern");
+// const intern = require("intern");
 
 class team {
   constructor() {
+
     this.name = null;
     this.jobTitle = null;
   }
+}
 
-  promptUser() {
+var memberOne = manager(email, officeNumber);
+var memberTwo = engineer(email, githubUserName);
+var memberThree = intern(email, school); 
+ 
+  promptUser() 
     return inquirer.prompt([
       {
         message: 'What is your user name?',
-        name: 'Name'
+        name: 'name'
       },
       {
           message: 'What is your title?',
-          name: 'job title'
+          name: 'jobTitle'
       }
-      
-    ]).then(({ name }) => {
-      this.Name = Name;
-      this.idNumber();
-    })
+    ])
+    // write if statements to get specific information for each job title. 
+  if {memberOne => this.manager
+  }else if{ memberTwo => this.engineer}
+  else{memberThree => this.intern}
+///// Prompt screen if 
   }
+  // if member one. Promt to email and office number 
+
+  // if engineer prompt to email then github name
+
+  // if intern promtp email  and school name 
+
+  }
+      
+             
+//       }
+//     // ]).then(({ name }) => {
+//     //   this.Name = Name;
+    
+
+
+    
 
   
-        this.createHtml();
-      })
-  }
+//         this.createHtml();
+//       })
+//   }
 
-  createHtml() {
-    this.html = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Javascript Fetch Api Example</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css"/>
-        <style>
-        
-      </head>
-      <body>
-         <div class="container">
-            <div style="background-color:rosybrown;color:black;" class="jumbotron">
-                <div>
-                    <img src="${this.avatar_url}" />
-                    <h2 class="login">${this.githubUserName}</h2>
-                </div>
-              <div >
-                <h2 class="bio">${this.bio}</h2>
-              </div>
-              <div class="row">
-              <div class="repositories">
-                <h2>Public repositories:${this.public_repos}</h2>
-              </div>
-              <div class="followers">
-                <h2>Followers:${this.followers}</h2>
-              </div>
-            </div>
-            <div class="row">
-            <div>
-            <h4>location:${this.location}</h4>
-            <a href="${this.html_url}">Github Page</a>
-            </div>
-              <div class="stars">
-                  <h2>Github Stars:</h2>
-                </div>  
-              <div class="following">
-                <h2>Following:${this.following}</h2>
-              </div>
-            </div>
-         </div>
+//   createHtml() {
+//     this.html = `
     
-       </body>
-      <!-- jQuery library -->
-      <script
-      src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-      crossorigin="anonymous"></script>
-      <script src="index.js"></script>
-    </html> 
-    `;
-  }
-    createHtml(){
-        html.create(this.html).toFile('./main.html', function (err, res) {
-            if (err) return console.log(err);
-            console.log(res);
-        });
-    }
-  }
+//     `;
+//   }
+//     createHtml(){
+//         html.create(this.html).toFile('./main.html', function (err, res) {
+//             if (err) return console.log(err);
+//             console.log(res);
+//         });
+//     }
+//   }
 
 
 
-var newHomework = new DoMyHomework();
-newHomework.promptUser();
+// var newHomework = new DoMyHomework();
+.promptUser();
